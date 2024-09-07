@@ -15,31 +15,27 @@ const number_arr =['7','8','9','+','4','5','6','-','1','2','3','*','C','0','=','
 
 const calculate = (val) =>{
 
-    if(  val === '' ){
-        if( val === '='){
-         setOutput('Error');
+    if(val === '='){
+        if(input === ''){
+            setOutput('Error');
+
+        }else{
+            try{
+                setOutput(eval(input));
+            }catch(e){
+                setOutput('Error');
+            }           
         }
-    }else{
-        setInput(prevInput=> prevInput+val);  
-    }
-    if( val === '='){
-        try{
-            setInput(input);
-            setOutput(eval(input));
-        }catch(e){
-            setInput('');
-            alert("Error/Invalid expression");
-        }
-       
-    }
-    if( val === 'C'){
+
+    }else if(val === 'C'){
         setInput('');
         setOutput('');
+
+    }else{
+        setInput(prevInput => prevInput +val); //adding val [new value] to existing input 
     }
-    //else{
-       // setInput(prevInput=> prevInput+val); //adding val [new value] to existing input 
-       // setOutput(eval(input));
-   // }
+
+
 
 
 }
